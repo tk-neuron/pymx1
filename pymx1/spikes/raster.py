@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter
 
 
-def rasterplot(ax: plt.Axes, df: pd.DataFrame, start: float, end: float, x: str='spiketime', y: str='channel'):
+def rasterplot(ax: plt.Axes, df: pd.DataFrame, start: float, end: float, x: str='spiketime', y: str='channel', c='k', s=5):
     df_ = df.query('@start < spiketime < @end')
-    return ax.scatter(x=df_[x], y=df_[y], color='black', s=5)
+    return ax.scatter(x=df_[x], y=df_[y], c=c, s=s)
 
 def spikehist(ax: plt.Axes, df: pd.DataFrame, start: float, end: float, bin_width: float, x: str='spiketime', smooth: bool=True):
     df_ = df.query('@start < spiketime < @end')
